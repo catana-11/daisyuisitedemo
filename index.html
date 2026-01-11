@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Shalaka</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- DaisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body class="bg-base-200 text-base-content">
+    <!-- Navbar -->
+    <div class="navbar sticky top-0 z-50 bg-base-100 border-b border-base-300">
+      <div class="mx-auto w-full max-w-5xl px-4">
+        <div class="flex-1">
+
+        </div>
+
+        <div class="flex gap-2 items-center">
+          <a class="btn btn-ghost btn-sm" href="#projects">Projects</a>
+          <a class="btn btn-primary btn-sm" href="#contact">Contact</a>
+
+          <!-- Theme toggle -->
+          <button id="themeBtn" class="btn btn-outline btn-sm" title="Toggle theme">
+            🌙 / ☀️
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="bg-base-100 border-b border-base-300">
+      <div class="mx-auto max-w-5xl px-4 py-14 grid md:grid-cols-2 gap-10 items-center">
+        <!-- Left: text -->
+        <div>
+          <h1 class="text-4xl font-extrabold leading-tight">
+            Hi, I'm <span class="text-primary">Shalaka!</span>
+          </h1>
+
+          <p class="mt-3 max-w-xl opacity-80">
+            I build modern web apps using React/Next.js + Python/Django + SQL.
+          </p>
+
+          <div class="mt-6 flex gap-3 flex-wrap">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a
+              class="btn btn-outline"
+              href="https://github.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: big avatar -->
+        <div class="flex justify-center md:justify-end">
+          <div class="avatar">
+            <div
+              class="w-52 md:w-64 rounded-full ring ring-primary ring-offset-base-100 ring-offset-8 shadow-xl"
+            >
+              <!--  Put your image in folder as avatar.png -->
+              <img src="avatar.png" alt="Sha Avatar" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mx-auto max-w-5xl px-4 py-14 scroll-mt-24">
+      <h2 class="text-2xl font-extrabold">Projects</h2>
+
+      <div class="mt-6 grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-base-300 bg-base-100 p-5">
+          <div class="font-bold text-lg">NBFC Report Generator</div>
+          <p class="text-sm opacity-75 mt-2">
+            Automated reporting pipeline using Django + Supabase.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge badge-outline">Python</span>
+            <span class="badge badge-outline">Django</span>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-base-300 bg-base-100 p-5">
+          <div class="font-bold text-lg">Timetable Scheduler</div>
+          <p class="text-sm opacity-75 mt-2">
+            Class scheduling optimizer using genetic algorithms.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge badge-outline">Python</span>
+            <span class="badge badge-outline">GA</span>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-base-300 bg-base-100 p-5">
+          <div class="font-bold text-lg">Portfolio Website</div>
+          <p class="text-sm opacity-75 mt-2">
+            Simple portfolio using Tailwind + DaisyUI.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="badge badge-outline">HTML</span>
+            <span class="badge badge-outline">DaisyUI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mx-auto max-w-5xl px-4 pb-14 scroll-mt-24">
+      <div class="rounded-2xl border border-base-300 bg-base-100 p-6">
+        <h2 class="text-2xl font-extrabold">Contact</h2>
+
+        <p class="mt-2 opacity-75">
+          Want to work together? Email me:
+        </p>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a class="btn btn-primary" href="mailto:you@example.com">Email Me</a>
+          <a
+            class="btn btn-outline"
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-base-300 bg-base-100">
+      <div class="mx-auto max-w-5xl px-4 py-6 opacity-70 text-sm">
+        © 2026 Shalaka. Built with Tailwind + DaisyUI.
+      </div>
+    </footer>
+
+    <!-- JS for theme -->
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+
+      document.getElementById("themeBtn").addEventListener("click", () => {
+        const html = document.documentElement;
+        const current = html.getAttribute("data-theme");
+        const next = current === "night" ? "cupcake" : "night";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      });
+    </script>
+  </body>
+</html>
